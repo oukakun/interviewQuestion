@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数组方法pop() push() unshift() shift()的区别</title>
+</head>
+
+<body>
+    <h1>数组方法pop() push() unshift() shift()的区别</h1>
+</body>
+<script>
+    var testArr = [1, 2, 3, 4, 5]
+        //push()在数组末尾添加传的参数,返回值是添加进去的值
+    testArr.push(6);
+    console.log(testArr);
+    //pop()删除数组最末尾的值,返回值是被删除的值
+    testArr.pop();
+    console.log(testArr);
+    //unshift()在数组最前端插入传的参数,返回值是添加进去的值
+    testArr.unshift(6);
+    console.log(testArr);
+    //shift()删除数组最前端的值,返回值是被删除的值
+    testArr.shift();
+    console.log(testArr);
+</script>
+
+</html>

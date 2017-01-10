@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>call和apply的区别</title>
+</head>
+
+<body>
+    <h1>call和apply的区别</h1>
+</body>
+<script>
+    //构造函数
+    function cat() {}
+    cat.prototype = {
+            say: function(food, action) {
+                action = action || 'run'
+                console.log('i love eat' + ' ' + food);
+                console.log('i like' + ' ' + action)
+                console.log(this)
+
+            }
+        }
+        //创建对象
+    var blackcat = new cat;
+    blackcat.name = 'blackcat';
+    blackcat.say('fish');
+
+    //call
+    var dog = {
+        name: 'blackdog'
+    }
+    blackcat.say.call(dog, 'bone');
+    //apply
+    blackcat.say.apply(dog, ['bone', 'row'])
+</script>
+
+</html>
