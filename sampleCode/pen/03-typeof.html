@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js的typeof()返回哪些数据类型</title>
+</head>
+
+<body>
+    <h1>js的typeof()返回哪些数据类型</h1>
+</body>
+<script>
+    var testNum = 1;
+    var testStr = 'abc';
+    var testBoolean = true;
+    var testObj = {
+        name: 'zs',
+        age: 19
+    };
+    var testArr = [1, 2, 3, 4];
+    var testFunction = function() {
+        console.log('hello world');
+    }
+    var testUndefined
+
+    console.log(typeof(testNum));
+    console.log(typeof(testStr));
+    console.log(typeof(testBoolean));
+    console.log(typeof(testObj));
+    console.log(typeof(testArr));
+    console.log(typeof(testFunction));
+    console.log(typeof(testUndefined));
+</script>
+
+</html>

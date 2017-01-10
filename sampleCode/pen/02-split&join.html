@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>split()和join()的区别</title>
+</head>
+
+<body>
+    <h1>split()和join()的区别</h1>
+</body>
+<script>
+    var testArr = ['aa', 'bb', 'cc'];
+    var testStr = 'aa|bb|cc'
+
+    //join
+    var tempStr = testArr.join(',');
+    console.log(tempStr);
+
+    //split
+    var tempArr = testStr.split('|');
+    console.log(tempArr);
+</script>
+
+</html>
