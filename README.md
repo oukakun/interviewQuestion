@@ -51,7 +51,7 @@ apply():而apply需要传递一个数组参数,并且会自动遍历数组里的
 > 一般在chrome firefox IE上测试,他们的内核分别是Webkit,Gecko,Trident
 
 ## 程序题
-1. 排序算法(任选一种用js实现)
+1.排序算法(任选一种用js实现)
 ```js
 var arr = [10, 5, 23, 0, 2];
 
@@ -70,7 +70,8 @@ var arr = [10, 5, 23, 0, 2];
 
     console.log(sort(arr));
 ```
-2. 写一个获取非行间样式的函数
+
+2.写一个获取非行间样式的函数
 ```js
 var div1 = document.getElementById("div1");
         alert(getstyle(div1, 'width'));
