@@ -1,0 +1,45 @@
+<!--DOCTYPE html-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        * {
+            text-align: center;
+        }
+        
+        input {
+            margin-top: 30px;
+            padding: 10px 20px;
+        }
+        
+        #div1 {
+            width: 500px;
+            height: 300px;
+            background: red;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="style" id="btn" />
+    <div id="div1"></div>
+
+    <script>
+        var div1 = document.getElementById("div1");
+        alert(getstyle(div1, 'width'));
+
+        function getstyle(obj, attr) {
+            if (obj.currentStyle) {
+                //兼容ie
+                return obj.currentStyle[attr];
+            } else {
+                //现代浏览器
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+    </script>
+</body>
+
+</html>

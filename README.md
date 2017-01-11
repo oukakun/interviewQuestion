@@ -1,5 +1,3 @@
-# 面试题整理
-
 ## 简答题
 1. 行内元素有哪些?块级元素有哪些?
 > 常用块级元素:  p , div , h1~h6 , form , hr , dl , ol , ul , table <br>
@@ -32,6 +30,59 @@ apply():而apply需要传递一个数组参数,并且会自动遍历数组里的
 8. document.ready事件和document.load事件的区别
 > 两者都是页面加载完成后触发的事件,区别在于ready表示文档结构加载完成,但是不包括图片等,而load则包括图片在内页面中所有的东西都加载完成后才触发
 
+9. xhtml和html有什么区别
+> xhtml的书写及代码都比html严格规范
+
+10. css引入的方式有哪些?link和import的区别是?
+> 外联式,内联式,内嵌式,导入式
+区别:link除了加载css外还能定义RSS等其他事务;@import只能加载css,link支持使用js控制DOM改变样式;import不支持
+
+11. 前端页面有哪三层构成,分别是什么?作用是什么?
+> 1. 结构层:html,语义描述页面,负责页面的内容
+> 2. 表示层:css,负责页面的样式
+> 3. 行为层:js,负责页面的行为
+
+12. css的基本语句构成是?
+> 选择器{
+  属性:属性值
+  }
+
+13. 你做的页面在哪些浏览器测试过?这些浏览器的内核分别是什么?
+> 一般在chrome firefox IE上测试,他们的内核分别是Webkit,Gecko,Trident
 
 ## 程序题
 1. 排序算法(任选一种用js实现)
+```js
+var arr = [10, 5, 23, 0, 2];
+
+    function sort(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr
+    }
+
+    console.log(sort(arr));
+```
+
+2. 写一个获取非行间样式的函数
+```js
+var div1 = document.getElementById("div1");
+        alert(getstyle(div1, 'width'));
+
+        function getstyle(obj, attr) {
+            if (obj.currentStyle) {
+                //兼容ie
+                return obj.currentStyle[attr];
+            } else {
+                //现代浏览器
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+```
