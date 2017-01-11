@@ -70,7 +70,6 @@ var arr = [10, 5, 23, 0, 2];
 
     console.log(sort(arr));
 ```
-
 2. 写一个获取非行间样式的函数
 ```js
 var div1 = document.getElementById("div1");
