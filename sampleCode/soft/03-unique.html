@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>3.有数组var arr=['a','b','c','1','0','c',1,'',1,0]请用js让unique(arr)返回['a','b','c','1',0,1,'']</h1>
+</body>
+<script>
+    var arr1 = ['a', 'b', 'c', '1', '0', 'c', 1, '', 1, 0];
+
+    function unique(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (newArr.indexOf(arr[i]) == -1) {
+                console.log(newArr.indexOf(arr[i] == -1))
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+    console.log(unique(arr1));
+</script>
+
+</html>
