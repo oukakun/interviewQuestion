@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>设置一个已知ID的DIV的html内容为xxxx,字体颜色设置为黑色</title>
+    <style>
+        #box {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        box.innerHTML = 'xxxx';
+        box.style.color = '#000';
+    </script>
+</body>
+
+</html>
