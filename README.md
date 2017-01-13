@@ -140,10 +140,11 @@
 
 #### 18.css 和 @import 的区别
 > 两者都是外部引用CSS的方式，但是存在一定的区别：
-> link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。
-> link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。
-> link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
-> link支持使用Javascript控制DOM去改变样式；而@import不支持。
+
+- link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。
+- link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。
+- link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
+- link支持使用Javascript控制DOM去改变样式；而@import不支持。
 
 
 #### 19.图片标签上title与alt属性的区别是什么?
@@ -152,12 +153,33 @@
 - `title`:表示当鼠标在图片上停留一段时间,显示的说明文本;
 
 #### 20.请列举出你常用的减少页面加载时间的方法.
+- 压缩Javascript、CSS代码;
+- 引用的包都用CDN载入;
+- 服务器开启gzip压缩;
+- 优化图片尺寸;
+- 小图标拼成精灵图使用;
+
 #### 21.HTML5有哪些新标签
-#### 22.如果文档宽度小于300像素则修改背景颜色,如何实现?
-#### 23.如何将字符串string2附加到string1?
-#### 24.已知ID的input输入框,怎么获取这个输入框的输入值?
-#### 25.设置一个已知ID的DIV的html内容为xxxx,字体颜色设置为黑色
-#### 26.如何设置,获取和删除cookie
+- `header`: 定义头部;
+
+- `nav`: 定义通栏;
+
+- `acticle`: 定义文章标题;
+
+- `section`: 定义文章内容;
+
+- `aside`:定义边栏;
+
+- `footer`: 定义底部;
+
+- `video`: 定义视频;
+
+- `audio`: 定义音频;
+
+- `canvas`: 定义画布;
+
+- `source`:定义媒体文件;
+
 #### 27.js变量类型有几种
 - 简单类型：number、string、boolean、undefined、null
 - 复杂类型：object
@@ -201,6 +223,10 @@
 - 注释规范：介绍单行注释、多行注释以及函数注释
 
 - 框架开发：介绍全局变量冲突、单全局变量以及命名空间
+
+
+
+
 
 ## 程序题
 
@@ -265,22 +291,29 @@ var div1 = document.getElementById("div1");
             margin: 0px 400px;
             border: 1px solid black;
         }
-        
+
         .left {
             height: 100%;
             background-color: pink;
         }
-        
+
         .right {
             float: right;
             width: 200px;
             height: 100%;
             background-color: red;
-        }
+			}
     </style>
+
+	<body>
+      <div class="bigbox">
+        <div class="right"></div>
+        <div class="left"></div>
+      </div>
+    </body>
 ```
 
-#### 5.css布局，两列等高，高度自适应
+#### 5.css布局，两列等高，高度自适应(品字布局)
 ```html
 <style>
     html,
@@ -289,13 +322,13 @@ var div1 = document.getElementById("div1");
         padding: 0;
         height: 100%;
     }
-    
+
     div:first-child {
         width: 100%;
         height: 200px;
         background: red;
     }
-    
+
     div:nth-child(2) {
         position: fixed;
         width: 50%;
@@ -304,7 +337,7 @@ var div1 = document.getElementById("div1");
         bottom: 0;
         left: 0;
     }
-    
+
     div:nth-child(3) {
         position: fixed;
         width: 50%;
@@ -329,7 +362,7 @@ var div1 = document.getElementById("div1");
             console.log( '不存在' );
         }
 
-        if ( typeof myObj == 'undefined' ) {
+        if ( typeof myObj == 'undefined' )        {
             console.log( '不存在' );
         }
 
@@ -352,11 +385,57 @@ var div1 = document.getElementById("div1");
         if ( myObj === undefined ) {
             console.log( '不存在' );
         }
-    </script>
+	</script>
+```
+#### 7.当文档宽度小于300像素则修改背景颜色,如何实现?
+```html
+<style>
+    body {
+        background-color: blue;
+    }
+
+    @media screen and (max-width:300px) {
+        body {
+            background-color: red;
+        }
+    }
+</style>
+```
+#### 8.如何将字符串string2附加到string1?
+```js
+        var str1 = '你好';
+        var str2 = '世界';
+        str1 = str1.concat(str2);
+        console.log(str1);
+```
+#### 9.设置一个已知ID的DIV的html内容为xxxx,字体颜色设置为黑色
+```js
+        var box = document.getElementById('box');
+        box.innerHTML = 'xxxx';
+        box.style.color = '#000';
+```
+#### 10.如何设置,获取和删除cookie
+```js
+        //设置cookie
+        document.cookie = 'hello world';
+        //获取cookie
+        console.log(document.cookie);
+        //删除cookie
+        document.cookie = '';
 ```
 
-#### 7.用正则完全删除与某个字符串相同相邻的字符‘郑复兵兵++5656’
-#### 8.手写insertafter方法插入节点
+#### 11.已知ID的input输入框,怎么获取这个输入框的输入值?
+```js
+        var user = document.getElementById('user');
+        user.addEventListener('keyup', function() {
+		//当键盘弹起时就能获取这个输入框中的值
+            console.log(user.value);
+        })
+
+```
+
+#### 12.用正则完全删除与某个字符串相同相邻的字符‘郑复兵兵++5656’
+#### 13.手写insertafter方法插入节点
 ```js
     <script>
         function insertAfter( newChild, refChild ) {    
@@ -370,7 +449,7 @@ var div1 = document.getElementById("div1");
     </script>
 ```
 
-#### 9.用js生成一个表格
+#### 14.用js生成一个表格
 ```js
     <script>
         var table = '<table>' +
@@ -395,4 +474,11 @@ var div1 = document.getElementById("div1");
     </script>
 ```
 
+
+
+#### 15.如何判断所使用的浏览器是否直接支持JSON?
+#### 16.js中如何创建新数组并初始化?
+#### 17.请写一个函数,接受摄氏度作为参数,返回相应的华氏度.
+- 华氏度(℉)=32+摄氏度(℃)×1.8
+#### 18.下面这个ul,如何点击每一列的时候弹出其index.
 

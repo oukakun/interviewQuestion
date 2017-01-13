@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>已知ID的input输入框,怎么获取这个输入框的输入值</title>
+</head>
+
+<body>
+    <input type="text" id="user">
+    <script>
+        var user = document.getElementById('user');
+        user.addEventListener('keyup', function() {
+            console.log(user.value);
+        })
+    </script>
+</body>
+
+</html>

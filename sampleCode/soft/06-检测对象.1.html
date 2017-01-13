@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>判断js对象是否存在</title>
+</head>
+
+<body>
+    <script>
+        var myObj;
+        if (!myObj) {
+            console.log('不存在');
+        }
+
+        if (typeof myObj != 'object') {
+            console.log('不存在');
+        }
+
+        if (typeof myObj == 'undefined') {
+            console.log('不存在');
+        }
+
+        if (!window.myObj) {
+            console.log('不存在');
+        }
+
+        if (!this.myObj) {
+            console.log('不存在');
+        }
+
+        if (myObj == null) {
+            console.log('不存在');
+        }
+
+        if (myObj == undefined) {
+            console.log('不存在');
+        }
+
+        if (myObj === undefined) {
+            console.log('不存在');
+        }
+    </script>
+</body>
+
+</html>
