@@ -158,6 +158,49 @@
 #### 24.已知ID的input输入框,怎么获取这个输入框的输入值?
 #### 25.设置一个已知ID的DIV的html内容为xxxx,字体颜色设置为黑色
 #### 26.如何设置,获取和删除cookie
+#### 27.js变量类型有几种
+- 简单类型：number、string、boolean、undefined、null
+- 复杂类型：object
+
+#### 28.写出你知道的http状态码
+- 200 请求成功
+- 304 自从上次请求后，请求的网页未修改过
+- 503 服务器暂时不可用
+- 400 请求错误
+- 401 没有权限
+- 403 forbidden 你的服务器或者主机禁止访问
+- 404 找不到请求页面
+
+#### 29.请问打印结果是什么？
+```js
+<script>
+    for ( var i = 0; i < 10; i++ ) {
+        window.setTimeout( function () {
+            console.log( i ); //10个10
+        }, 100 )
+    }
+    console.log( i ); //10
+    var foo = 1,
+        bar = 2,
+        j, text;
+    text = function ( j ) {
+        j = 5;
+        var bar = 5;
+        foo = 5;
+    }
+    text( 10 );
+    console.log( foo ); //5
+    console.log( bar ); //2
+    console.log( j ); //undefined
+</script>
+```
+
+#### 30.js编程规范
+- 命名规范：介绍变量、函数、常量、构造函数、类的成员等等的命名规范
+
+- 注释规范：介绍单行注释、多行注释以及函数注释
+
+- 框架开发：介绍全局变量冲突、单全局变量以及命名空间
 
 ## 程序题
 
@@ -273,10 +316,10 @@ var div1 = document.getElementById("div1");
 </style>
 ```
 
-#### 5.如何判断js对象是否存在？
+#### 6.如何判断js对象是否存在？
 ```js
 //暂写8种方式
-<script>
+    <script>
         var myObj;
         if ( !myObj ) {
             console.log( '不存在' );
@@ -311,3 +354,45 @@ var div1 = document.getElementById("div1");
         }
     </script>
 ```
+
+#### 7.用正则完全删除与某个字符串相同相邻的字符‘郑复兵兵++5656’
+#### 8.手写insertafter方法插入节点
+```js
+    <script>
+        function insertAfter( newChild, refChild ) {    
+            var parent = refChild.parentNode;
+            if ( refChild === parent.lastChild ) {
+                parent.appendChild( newChild );
+            } else {
+                parent.insertBefore( newChild, refChild.nextSibling );
+            }
+        }
+    </script>
+```
+
+#### 9.用js生成一个表格
+```js
+    <script>
+        var table = '<table>' +
+            '<tr>' +
+            '<td>年龄</td>' +
+            '<td>性别</td>' +
+            '<td>名字</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>16</td>' +
+            '<td>男</td>' +
+            '<td>ls</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>28</td>' +
+            '<td>男</td>' +
+            '<td>zs</td>' +
+            '</tr>' +
+            '</table>';
+
+        document.querySelector( 'body' ).innerHTML = table;
+    </script>
+```
+
+
