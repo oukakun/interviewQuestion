@@ -224,9 +224,21 @@
 
 - 框架开发：介绍全局变量冲突、单全局变量以及命名空间
 
-
-
-
+#### 31.javascript中“use strict;”是什么意思？使用他的区别是什么
+- 开启严格模式
+- 不允许用with。
+- 所有变量必须声明，赋值给未声明的变量报错，而不是隐匿创建全局变量。
+- eval中的代码不能创建eval所在作用域下的变量、函数。而是为eval单独创建一个作用域，并在eval返回时丢弃。
+- 函数中的特殊对象arguments是静态副本，而不像非严格模式那样，修改arguments或修改参数变量会相互影响。
+- 删除configurable=false的属性时报错，而不是忽略。
+- 对象字面量重复属性名报错。
+- 禁止八进制字面量，如010（八进制的8）。
+- 严格模式下eval、arguments变为关键字，不能用作变量名。
+- 一般函数调用时（不是对象的方法调用，也不使用apply/call/bind等修改this）this指向null，而不是全局变量。
+- 试图修改不可写属性（writable=false），在不可扩展的对象上添加属性时报TypeError，而不是忽略。
+- arguments.caller,arguements.callee被禁用
+ 
+####
 
 ## 程序题
 
@@ -496,4 +508,6 @@ var div1 = document.getElementById("div1");
         // parseInt("1",0),parseInt("2",1),parseInt("3",2)
     </script>
 ```
+
+
 
