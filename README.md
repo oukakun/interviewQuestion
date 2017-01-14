@@ -243,8 +243,38 @@
 - 一般函数调用时（不是对象的方法调用，也不使用apply/call/bind等修改this）this指向null，而不是全局变量。
 - 试图修改不可写属性（writable=false），在不可扩展的对象上添加属性时报TypeError，而不是忽略。
 - arguments.caller,arguements.callee被禁用
+
+#### 27.如何判断一个对象是否属于某个类？
  
-####
+#### 28.一个页面从输入url到页面加载完成这个过程都发生了什么？
+- 输入地址
+- 浏览器查找域名的 IP 地址
+- 这一步包括 DNS 具体的查找过程，包括：浏览器缓存->系统缓存->路由器缓存...
+- 浏览器向 web 服务器发送一个 HTTP 请求
+- 服务器的永久重定向响应（从 http://example.com 到 http://www.example.com）
+- 浏览器跟踪重定向地址
+- 服务器处理请求
+- 服务器返回一个 HTTP 响应
+- 浏览器显示 HTML
+- 浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
+- 浏览器发送异步请求
+
+#### 29.css3中background:rgba(255,0,0,0.5)中这些数字分别代表什么意思？
+- 255代表red值，红色值
+- 0代表green值，绿色值
+- 第三个0代表蓝色值，blue
+- 第四个数代表A，alpha，是透明度
+
+#### 30.不同浏览器js方面的差异
+- 1.firefox、chrome中没有window.event对象，只有event对象，而IE里是window.event对象;
+- 2.Ajax请求 IE：new ActiveXObject(),firefox,chrome:new XMLHttpRequest();
+- 3.firefox不支持innnerText，他支持textContent来实现innerText
+- 4.获取可见区域、窗口的大小。有时，我们会需要找到浏览器的可视位置的大小，通常我们称之为"可见区域"。 
+- 在IE中这样写：document.documentElement.clientWidth;document.documentElement.clientHeight; 
+- 在Firefox中这样写：window.innerWidth;window.innerHeight; 
+- 5.获取鼠标指针的位置
+- 在IE中这样写：event.clientX;event.clientY;在Firefox中这样写：event.pageX;event.pageY; 
+
 
 
 ## 程序题
@@ -539,4 +569,42 @@ var div1 = document.getElementById("div1");
         console.log(arr);
         console.log(arrNew);
 ```
+#### 20.合并两个数组，a = [0,1,2];b = [a,b,c],并且删除新数组的第二个元素
+```js
+    <script>
+        var a = [ 0, 1, 2 ];
+        var b = [ 'a', 'b', 'c' ];
+        var newArr = a.concat( b );
+        newArr.splice( 1, 1 );
+        console.log( newArr )
+    </script>
+```
+
+#### 21.获取DOM元素的位置
+- offsetParent属性返回一个对象的引用，这个对象是距离调用offsetParent的元素最近的（在包含层次中最靠近的），并且是已进行过CSS定位的容器元素。
+```js
+    function getElemPos( obj ) {
+        var pos = {
+            "top": 0,
+            "left": 0
+        };
+        if ( obj.offsetParent ) {
+            while ( obj.offsetParent ) {
+                pos.top += obj.offsetTop;
+                pos.left += obj.offsetLeft;
+                obj = obj.offsetParent;
+            }
+        } else if ( obj.x ) {
+            pos.left += obj.x;
+        } else if ( obj.x ) {
+            pos.top += obj.y;
+        }
+        return {
+            x: pos.left,
+            y: pos.top
+        };
+    }
+```
+
+
 

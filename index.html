@@ -8,25 +8,26 @@
 
 <body>
     <script>
-        var table = '<table>' +
-            '<tr>' +
-            '<td>年龄</td>' +
-            '<td>性别</td>' +
-            '<td>名字</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>16</td>' +
-            '<td>男</td>' +
-            '<td>ls</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>28</td>' +
-            '<td>男</td>' +
-            '<td>zs</td>' +
-            '</tr>' +
-            '</table>';
-
-        document.querySelector( 'body' ).innerHTML = table;
+        function getElemPos( obj ) {
+            var pos = {
+                "top": 0,
+                "left": 0
+            };
+            if ( obj.offsetParent ) {
+                while ( obj.offsetParent ) {
+                    pos.top += obj.offsetTop;
+                    pos.left += obj.offsetLeft;
+                    obj = obj.offsetParent;
+                }
+            } else if ( obj.x ) {
+                pos.left += obj.x;
+            } else if ( obj.x ) {
+                pos.top += obj.y;
+            }
+            return {
+                x: pos.left,
+                y: pos.top
+            };
     </script>
 </body>
 
