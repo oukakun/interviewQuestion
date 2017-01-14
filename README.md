@@ -475,7 +475,7 @@ var div1 = document.getElementById("div1");
 ```
 
 #### 16.请写一个函数,接受摄氏度作为参数,返回相应的华氏度.
-> 华氏度(℉)=32+摄氏度(℃)×1.8
+> 华氏度(℉)=32+摄氏度(℃)×<1 class="8"></1>
 
 ```js
  //公式:华氏度(℉)=32+摄氏度(℃)×1.8
@@ -491,8 +491,7 @@ var div1 = document.getElementById("div1");
 #### 17.下面这个ul,如何点击每一列的时候弹出其index.
 ```js
         var lis = document.querySelectorAll('li');
-
-        for (var i = 0; i < lis.length; i++) {
+                for (var i = 0; i < lis.length; i++) {
             lis[i].setAttribute('index', i);
             lis[i].addEventListener('click', function() {;
                 console.log(this.getAttribute('index'));
@@ -500,7 +499,23 @@ var div1 = document.getElementById("div1");
         }
 ```
 
-#### 18.js中如何创建新数组并初始化.
+#### 18.[ "1", "2", "3" ].map( parseInt )返回结果是什么？
+```js
+    <script>
+        var r = [ "1", "2", "3" ].map( parseInt );
+        console.log( r );
+        // map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
+        // 那么[ "1", "2", "3" ].map( parseInt )返回值是什么呢？
+        // 你一定会觉得返回值是[1,2,3];
+        // 实际返回结果是[1,NaN,NaN];
+        // 为什么呢？
+        // 其实parseInt是有3个参数的,第二个参数是进制,第三个参数会被parseInt忽视;
+        // parseInt会把传过来的索引值当作进制数使用
+        // parseInt("1",0),parseInt("2",1),parseInt("3",2)
+    </script>
+```
+
+#### 19.js中如何创建新数组并初始化.
 ```js
         var arr = [1, 2, 3];
         var arrNew = new Array(4, 5, 6);
