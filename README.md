@@ -90,50 +90,50 @@
  - 优点：简单，代码少，容易掌握
  - 缺点：只适合高度固定的布局，要给出精确的高度，如果高度和父级div不一样时，会产生问题;
  - 建议：不推荐使用，只建议高度固定的布局时使用;
- 
- 
+
+
 - 方法二：结尾处加空div标签clear:both
  - 原理：添加一个空div，利用css提高的clear:both清除浮动，让父级div能自动获取到高度
  - 优点：简单，代码少，浏览器支持好，不容易出现怪问题
  - 缺点：不少初学者不理解原理；如果页面浮动布局多，就要增加很多空div，让人感觉很不爽
  - 建议：不推荐使用，但此方法是以前主要使用的一种清除浮动方法;
- 
- 
+
+
 - 方法三：父级div定义伪类:after和zoom
  - 原理：IE8以上和非IE浏览器才支持:after，原理和方法2有点类似，zoom(IE转有属性)可解决ie6,ie7浮动问题;
  - 优点：浏览器支持好，不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）;
  - 缺点：代码多，不少初学者不理解原理，要两句代码结合使用，才能让主流浏览器都支持;
  - 建议：推荐使用，建议定义公共类，以减少CSS代码;
- 
- 
+
+
 - 方法四：父级div定义overflow:hidden
  - 原理：必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度
  - 优点：简单，代码少，浏览器支持好
  - 缺点：不能和position配合使用，因为超出的尺寸的会被隐藏
  - 建议：只推荐没有使用position或对overflow:hidden理解比较深的朋友使用;
- 
- 
+
+
 - 方法五：父级div定义overflow:auto
  - 原理：必须定义width或zoom:1，同时不能定义height，使用overflow:auto时，浏览器会自动检查浮动区域的高度
  - 优点：简单，代码少，浏览器支持好
  - 缺点：内部宽高超过父级div时，会出现滚动条。
  - 建议：不推荐使用，如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧。
- 
- 
+
+
 - 方法六：父级div也一起浮动
  - 原理：所有代码一起浮动，就变成了一个整体
  - 优点：没有优点
  - 缺点：会产生新的浮动问题
  - 建议：不推荐使用，只作了解
- 
- 
+
+
 - 方法七：父级div定义display:table
  - 原理：将div属性变成表格
  - 优点：没有优点
  - 缺点：会产生新的未知问题
  - 建议：不推荐使用，只作了解
- 
- 
+
+
 - 方法八：结尾处加br标签clear:both
  - 原理：父级div定义zoom:1来解决IE浮动问题，结尾处加br标签clear:both
  - 建议：不推荐使用，只作了解
@@ -158,6 +158,11 @@
 - 服务器开启gzip压缩;
 - 优化图片尺寸;
 - 小图标拼成精灵图使用;
+- 按需加载,懒加载
+- css样式放在页头
+- js脚本放在页尾
+- 减少DOM节点
+- 模块化
 
 #### 21.HTML5有哪些新标签
 - `header`: 定义头部;
@@ -180,11 +185,11 @@
 
 - `source`:定义媒体文件;
 
-#### 27.js变量类型有几种
+#### 22.js变量类型有几种
 - 简单类型：number、string、boolean、undefined、null
 - 复杂类型：object
 
-#### 28.写出你知道的http状态码
+#### 23.写出你知道的http状态码
 - 200 请求成功
 - 304 自从上次请求后，请求的网页未修改过
 - 503 服务器暂时不可用
@@ -193,7 +198,7 @@
 - 403 forbidden 你的服务器或者主机禁止访问
 - 404 找不到请求页面
 
-#### 29.请问打印结果是什么？
+#### 24.请问打印结果是什么？
 ```js
 <script>
     for ( var i = 0; i < 10; i++ ) {
@@ -217,12 +222,13 @@
 </script>
 ```
 
-#### 30.js编程规范
+#### 25.js编程规范
 - 命名规范：介绍变量、函数、常量、构造函数、类的成员等等的命名规范
 
 - 注释规范：介绍单行注释、多行注释以及函数注释
 
 - 框架开发：介绍全局变量冲突、单全局变量以及命名空间
+
 
 #### 31.javascript中“use strict;”是什么意思？使用他的区别是什么
 - 开启严格模式
@@ -239,6 +245,7 @@
 - arguments.caller,arguements.callee被禁用
  
 ####
+
 
 ## 程序题
 
@@ -314,10 +321,10 @@ var div1 = document.getElementById("div1");
             width: 200px;
             height: 100%;
             background-color: red;
-			}
+            }
     </style>
 
-	<body>
+    <body>
       <div class="bigbox">
         <div class="right"></div>
         <div class="left"></div>
@@ -397,7 +404,7 @@ var div1 = document.getElementById("div1");
         if ( myObj === undefined ) {
             console.log( '不存在' );
         }
-	</script>
+    </script>
 ```
 #### 7.当文档宽度小于300像素则修改背景颜色,如何实现?
 ```html
@@ -440,17 +447,19 @@ var div1 = document.getElementById("div1");
 ```js
         var user = document.getElementById('user');
         user.addEventListener('keyup', function() {
-		//当键盘弹起时就能获取这个输入框中的值
+        //当键盘弹起时就能获取这个输入框中的值
             console.log(user.value);
         })
 
 ```
+#### 12.如何判断所使用的浏览器是否直接支持JSON?
 
-#### 12.用正则完全删除与某个字符串相同相邻的字符‘郑复兵兵++5656’
-#### 13.手写insertafter方法插入节点
+
+#### 13.用正则完全删除与某个字符串相同相邻的字符‘郑复兵兵++5656’;
+
+#### 14.手写insertafter方法插入节点
 ```js
-    <script>
-        function insertAfter( newChild, refChild ) {    
+        function insertAfter( newChild, refChild ) {
             var parent = refChild.parentNode;
             if ( refChild === parent.lastChild ) {
                 parent.appendChild( newChild );
@@ -458,12 +467,10 @@ var div1 = document.getElementById("div1");
                 parent.insertBefore( newChild, refChild.nextSibling );
             }
         }
-    </script>
 ```
 
-#### 14.用js生成一个表格
+#### 15.用js生成一个表格
 ```js
-    <script>
         var table = '<table>' +
             '<tr>' +
             '<td>年龄</td>' +
@@ -483,17 +490,34 @@ var div1 = document.getElementById("div1");
             '</table>';
 
         document.querySelector( 'body' ).innerHTML = table;
-    </script>
 ```
 
+#### 16.请写一个函数,接受摄氏度作为参数,返回相应的华氏度.
+> 华氏度(℉)=32+摄氏度(℃)×<1 class="8"></1>
 
+```js
+ //公式:华氏度(℉)=32+摄氏度(℃)×1.8
+        function temp(degree) {
+            var f = 0;
+            var c = degree;
+            f = 32 + (c * 1.8);
+            return f;
+        }
+        console.log(temp(5));
+```
 
-#### 15.如何判断所使用的浏览器是否直接支持JSON?
-#### 16.js中如何创建新数组并初始化?
-#### 17.请写一个函数,接受摄氏度作为参数,返回相应的华氏度.
-- 华氏度(℉)=32+摄氏度(℃)×1.8
-#### 18.下面这个ul,如何点击每一列的时候弹出其index.
-#### 19.[ "1", "2", "3" ].map( parseInt )返回结果是什么？
+#### 17.下面这个ul,如何点击每一列的时候弹出其index.
+```js
+        var lis = document.querySelectorAll('li');
+                for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].addEventListener('click', function() {;
+                console.log(this.getAttribute('index'));
+            });
+        }
+```
+
+#### 18.[ "1", "2", "3" ].map( parseInt )返回结果是什么？
 ```js
     <script>
         var r = [ "1", "2", "3" ].map( parseInt );
@@ -508,6 +532,11 @@ var div1 = document.getElementById("div1");
         // parseInt("1",0),parseInt("2",1),parseInt("3",2)
     </script>
 ```
-
-
+#### 19.js中如何创建新数组并初始化.
+```js
+        var arr = [1, 2, 3];
+        var arrNew = new Array(4, 5, 6);
+        console.log(arr);
+        console.log(arrNew);
+```
 

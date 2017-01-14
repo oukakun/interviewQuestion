@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击每一列的时候弹出其index</title>
+</head>
+
+<body>
+    <ul>
+        <li>第一行</li>
+        <li>第二行</li>
+        <li>第三行</li>
+    </ul>
+    <script>
+        var lis = document.querySelectorAll('li');
+
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].addEventListener('click', function() {;
+                console.log(this.getAttribute('index'));
+            });
+        }
+    </script>
+</body>
+
+</html>
