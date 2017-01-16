@@ -275,7 +275,127 @@
 - 5.获取鼠标指针的位置
 - 在IE中这样写：event.clientX;event.clientY;在Firefox中这样写：event.pageX;event.pageY; 
 
+#### 31.简述页面的结构分层
+> 
 
+#### 32.列举手机端开发浏览器常见的几种兼容性问题以及解决方案
+- 页面窗口自动调整到设备宽度，并禁止用户缩放页面
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+```
+- 移动端touch事件
+```js
+//touchstart,touchmove,touchend,touchcancel支持webkit
+//一下支持windophone
+//MSPointerDown——当手指触碰屏幕时候发生。不管当前有多少只手指
+//MSPointerMove——当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用css的html{-ms-touch-action: none;}可以阻止默认情况的发生：阻止页面滚动
+//MSPointerUp——当手指离开屏幕时触发
+```
+- 圆角bug
+```css
+background-clip: padding-box;
+```
+- active兼容处理 伪类active失效
+```html
+//方法一：body添加ontouchstart
+<body ontouchstart="">
+//方法二：js给 document 绑定 touchstart 或 touchend 事件
+<script>
+    document.addEventListener('touchstart',function(){},false);
+</script>
+```
+- ios和android下触摸元素时出现半透明灰色遮罩
+```css
+-webkit-tap-highlight-color:rgba(255,255,255,0)
+```
+- 长时间按住页面出现闪退
+```css
+-webkit-touch-callout:none;
+```
+- iphone以及ipad下输入框默认内阴影
+```css
+-webkit-appearance:none;
+```
+#### 33.列举PC端开发浏览器常见的几种兼容性问题以及解决方案
+- 默认的内外边距不同(各个浏览器内外边距不同)    *{margin:0;padding:0}
+- 水平居中问题    
+  - 问题：设置 text-align: center，ie6-7文本居中，嵌套的块元素也会居中firefox/opera/safari/ie8文本会居中，嵌套块不会居中
+  - 解决：块元素设置
+  ```css
+    margin-left:auto;
+    margin-right:auto;
+    margin:0 auto;
+    align:center;
+  ```
+- 垂直居中的问题
+    - 问题：在浏览器中想要垂直居中，设置vertical-align:middle; 不起作用。例如：ie6下文本与文本输入框对不齐，需设置vertical-align:middle，但是文本框的内容不会垂直居中
+    - 解决：给容器设置一个与其高度相同的行高line-height:与容器的height一样
+- 高度问题
+    - 问题：如果是动态地添加内容，高度最好不要定义。浏览器可以自动伸缩，然而如果是静态的内容，高度最好定好。如果设定了高度，内容过多时，ie6下会自动增加高度、其他浏览器会超出边框
+    - 解决：
+    1.设置overflow:hidden;
+    2.高度自增height:auto!important;height:100px;
+- 前端开发中常遇到的浏览器兼容问题小结               http://blog.csdn.net/anterwang/article/details/53338208
+#### 34.css盒模型介绍，涉及哪些属性
+- content (内容)、padding (间隙)、border(边框)、margin(间隔)
+- padding 盒子中的内容与盒子的距离
+- margin 盒子与盒子之间的距离
+- border 盒子的边框
+- content 盒子中的内容部分
+#### 35.css的引入方式
+- link方式引入
+- @import方式引入
+```html
+<link href="example.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+@import url(example.css);
+</style>
+```
+#### 36.css选择器有哪些分类
+- id选择器
+- 类选择器
+- 元素选择器
+- 属性选择器
+- 后代选择器
+- 子代选择器
+- 伪类选择器
+- 通配符选择器
+#### 37.DOM对象与jquery对象的区别，以及转化
+- $(DOM对象) => DOM转化成jquery对象
+- jquery对象[0] => jquery对象转换成DOM对象
+- DOM对象，即是我们用传统的方法(javascript)获得的对象，jQuery对象即是用jQuery类库的选择器获得的对象
+
+#### 38.如何获取当前网页以及浏览器信息
+```js
+//获取浏览器信息
+window.navigator.userAgent
+//获取当前页面路径
+window.location.href
+//获取当前页域名
+document.domain
+//获取当前页面标题
+document.title
+```
+
+#### 39.什么是闭包？简述优点和缺点
+```js
+function f1() {
+    var a = 1;
+    function f2() {
+        return a;
+    }
+    return f2;
+}
+var result = f1();
+console.log(result());
+//这里的f2形成了闭包
+```
+- 优点：
+  - 逻辑连续，当闭包作为另一个函数调用的参数时，避免你脱离当前逻辑而单独编写额外逻辑。
+  - 方便调用上下文的局部变量。
+  - 加强封装性，第2点的延伸，可以达到对变量的保护作用。
+- 缺点：
+  - 闭包有一个非常严重的问题，那就是内存浪费问题，这个内存浪费不仅仅因为它常驻内存，更重要的是，对闭包的使用不当会造成无效内存的产生
 
 ## 程序题
 
