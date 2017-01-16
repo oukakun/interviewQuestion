@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>水平垂直居中</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -50px;
+        }
+        
+        .lineCenter {
+            text-align: center;
+            line-height: 500px;
+        }
+        
+        .blockCenter1 {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        .blockCenter2 {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="son">内容</div>
+    </div>
+</body>
+
+</html>

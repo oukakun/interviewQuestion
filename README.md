@@ -245,7 +245,7 @@
 - arguments.caller,arguements.callee被禁用
 
 #### 27.如何判断一个对象是否属于某个类？
- 
+
 #### 28.一个页面从输入url到页面加载完成这个过程都发生了什么？
 - 输入地址
 - 浏览器查找域名的 IP 地址
@@ -269,16 +269,69 @@
 - 1.firefox、chrome中没有window.event对象，只有event对象，而IE里是window.event对象;
 - 2.Ajax请求 IE：new ActiveXObject(),firefox,chrome:new XMLHttpRequest();
 - 3.firefox不支持innnerText，他支持textContent来实现innerText
-- 4.获取可见区域、窗口的大小。有时，我们会需要找到浏览器的可视位置的大小，通常我们称之为"可见区域"。 
-- 在IE中这样写：document.documentElement.clientWidth;document.documentElement.clientHeight; 
-- 在Firefox中这样写：window.innerWidth;window.innerHeight; 
+- 4.获取可见区域、窗口的大小。有时，我们会需要找到浏览器的可视位置的大小，通常我们称之为"可见区域"。
+- 在IE中这样写：document.documentElement.clientWidth;document.documentElement.clientHeight;
+- 在Firefox中这样写：window.innerWidth;window.innerHeight;
 - 5.获取鼠标指针的位置
-- 在IE中这样写：event.clientX;event.clientY;在Firefox中这样写：event.pageX;event.pageY; 
+- 在IE中这样写：event.clientX;event.clientY;在Firefox中这样写：event.pageX;event.pageY;
 
-#### 31.简述页面的结构分层
+#### 31.css中display都有哪些常用的值?
+
+- `display:none` 隐藏;
+
+- `display:block` 块级元素;
+
+- `display:inline` 行内元素;
+
+- `display:inline-block` 行内块元素;
+
+#### 32.css中都知道哪些选择器.
+
+- id选择器 #id{};
+- 类选择器 .class{};
+- 标签选择器 标签{};
+- 后代选择器 祖 (空格) 孙{};
+- 子选择器 父>子{};
+- 伪类选择器 a:hover{};
+- 通配符选择器 \*{};
+- 群选择器 标签,标签,标签{};
+- 相邻兄弟选择器 兄弟1+兄弟2{};
+- 属性选择器 [属性]{}
+- 伪元素选择器 标签::after{}
+
+#### 33.如何清除浮动元素造成的高度塌陷?
+- 如果子元素全部浮动,给父元素设置高度(缺陷:一般开发中父盒子高度都是由内容撑开的,所以不常用);
+
+- 为父元素添加`clear:both`(缺陷:会使2个父盒子之间的margin失效);
+
+- 父元素设置`overflow:hidden`(缺陷:特殊情况下,如果子元素定位出了父元素,会因设置了`overflow:hidden`而被隐藏);
+
+- 给父元素设置一个有`clear:both`属性并且宽高为0的透明伪元素来清除浮动(完美,现在的主流方法);
+
+
+
+#### 34.简述css中伪元素和伪类有哪些?
+
+- 伪类:
+  - `:active`:将样式添加到被激活的元素;
+  - `:focus`:将样式添加到被选中的元素;
+  - `:hover`:当鼠标停留在上方时,向元素添加样式;
+  - `:link`:给未被访问过的链接添加样式;
+  - `:visited`:给已被访问过的链接添加样式;
+  - `:first-child`:给元素的第一个子元素,添加样式;
+
+
+- 伪元素:
+  - `::first-letter`:给文本首字母添加样式;
+  - `::first-line`:给文本首行添加样式;
+  - `::before`:在元素之前插入样式;
+  - `::after`:在元素之后插入样式;
+
+#### 35.简述页面的结构分层
 > 
 
-#### 32.列举手机端开发浏览器常见的几种兼容性问题以及解决方案
+
+#### 36.列举手机端开发浏览器常见的几种兼容性问题以及解决方案
 - 页面窗口自动调整到设备宽度，并禁止用户缩放页面
 ```html
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
@@ -316,7 +369,7 @@ background-clip: padding-box;
 ```css
 -webkit-appearance:none;
 ```
-#### 33.列举PC端开发浏览器常见的几种兼容性问题以及解决方案
+#### 37.列举PC端开发浏览器常见的几种兼容性问题以及解决方案
 - 默认的内外边距不同(各个浏览器内外边距不同)    *{margin:0;padding:0}
 - 水平居中问题    
   - 问题：设置 text-align: center，ie6-7文本居中，嵌套的块元素也会居中firefox/opera/safari/ie8文本会居中，嵌套块不会居中
@@ -336,13 +389,13 @@ background-clip: padding-box;
     1.设置overflow:hidden;
     2.高度自增height:auto!important;height:100px;
 - 前端开发中常遇到的浏览器兼容问题小结               http://blog.csdn.net/anterwang/article/details/53338208
-#### 34.css盒模型介绍，涉及哪些属性
+#### 38.css盒模型介绍，涉及哪些属性
 - content (内容)、padding (间隙)、border(边框)、margin(间隔)
 - padding 盒子中的内容与盒子的距离
 - margin 盒子与盒子之间的距离
 - border 盒子的边框
 - content 盒子中的内容部分
-#### 35.css的引入方式
+#### 39.css的引入方式
 - link方式引入
 - @import方式引入
 ```html
@@ -351,7 +404,7 @@ background-clip: padding-box;
 @import url(example.css);
 </style>
 ```
-#### 36.css选择器有哪些分类
+#### 40.css选择器有哪些分类
 - id选择器
 - 类选择器
 - 元素选择器
@@ -360,12 +413,12 @@ background-clip: padding-box;
 - 子代选择器
 - 伪类选择器
 - 通配符选择器
-#### 37.DOM对象与jquery对象的区别，以及转化
+#### 41.DOM对象与jquery对象的区别，以及转化
 - $(DOM对象) => DOM转化成jquery对象
 - jquery对象[0] => jquery对象转换成DOM对象
 - DOM对象，即是我们用传统的方法(javascript)获得的对象，jQuery对象即是用jQuery类库的选择器获得的对象
 
-#### 38.如何获取当前网页以及浏览器信息
+#### 42.如何获取当前网页以及浏览器信息
 ```js
 //获取浏览器信息
 window.navigator.userAgent
@@ -377,7 +430,7 @@ document.domain
 document.title
 ```
 
-#### 39.什么是闭包？简述优点和缺点
+#### 43.什么是闭包？简述优点和缺点
 ```js
 function f1() {
     var a = 1;
@@ -397,6 +450,32 @@ console.log(result());
 - 缺点：
   - 闭包有一个非常严重的问题，那就是内存浪费问题，这个内存浪费不仅仅因为它常驻内存，更重要的是，对闭包的使用不当会造成无效内存的产生
 
+#### 44.简述css的盒模型
+> css的盒模型可以分为四个部分;
+- element:此部分包含主内容,height,width;
+- padding:此部分为element与border之间的填充;
+- border:此部分为盒模型的边框;
+- margin:此部分为两个盒模型之间的间距;
+
+
+#### 45.css的hack有哪些?
+- \9: ie678;
+- \0: ie8;
+- +: ie67;
+- _: ie6;
+
+#### 46.简述前端常用的布局方法.
+- 固定布局:主内容给死一个固定的宽度,在大屏中显示页面左右会有大量的空白部分;
+
+- 弹性布局:使用单位rem进行相对布局,可以灵活的根据屏幕的大小改变html字体大小来调整整体布局的大小;
+
+- 流动布局:通过整体单位用%来进行相对布局, 可以根据父元素的实时尺寸来调整大小,配合max-width等属性来避免过大或过小导致阅读困难,某些情况下可能导致布局被破坏;
+
+- 伸缩布局:使用css3 flex系列属性来布局,pc端兼容性较差还未普及;
+
+- 响应式布局:通过`@media`媒体查询根据不同的屏幕大小切换布局的样式,对于内容较多的页面不适用;
+
+- 自适应布局:通过媒体查询和流动布局搭配进行布局;
 ## 程序题
 
 #### 1.排序算法(任选一种用js实现)
@@ -701,7 +780,8 @@ var div1 = document.getElementById("div1");
 ```
 
 #### 21.获取DOM元素的位置
-- offsetParent属性返回一个对象的引用，这个对象是距离调用offsetParent的元素最近的（在包含层次中最靠近的），并且是已进行过CSS定位的容器元素。
+> offsetParent属性返回一个对象的引用，这个对象是距离调用offsetParent的元素最近的（在包含层次中最靠近的），并且是已进行过CSS定位的容器元素。
+
 ```js
     function getElemPos( obj ) {
         var pos = {
@@ -726,5 +806,38 @@ var div1 = document.getElementById("div1");
     }
 ```
 
+#### 22.css中常用居中技术(水平和垂直)有哪些?
+```js
+//当父元素为块级元素并指定宽高,子元素为行内元素时:
 
+//方法一:
+.father{
+            text-align: center;
+            line-height: 500px;//和高度一样
+        }
+
+//当父元素为块级元素并指定宽高,子元素为块级元素时:
+
+//方法一:
+.father{
+            display: table-cell;
+            vertical-align: middle;
+        }
+.son{
+			margin: 0 auto;
+        }
+
+//方法二:
+.father{
+            position: relative;
+
+        }
+		
+.son{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -50px;//总宽度的一半
+        }
+```
 
