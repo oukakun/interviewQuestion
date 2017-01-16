@@ -276,12 +276,17 @@
 - 在IE中这样写：event.clientX;event.clientY;在Firefox中这样写：event.pageX;event.pageY;
 
 #### 31.css中display都有哪些常用的值?
-- display:none 隐藏
-- display:block 块级元素
-- display:inline 行内元素
-- display:inline-block 行内块元素
+
+- `display:none` 隐藏;
+
+- `display:block` 块级元素;
+
+- `display:inline` 行内元素;
+
+- `display:inline-block` 行内块元素;
 
 #### 32.css中都知道哪些选择器.
+
 - id选择器 #id{};
 - 类选择器 .class{};
 - 标签选择器 标签{};
@@ -308,19 +313,19 @@
 #### 35.简述css中伪元素和伪类有哪些?
 
 - 伪类:
-  - active:将样式添加到被激活的元素;
-  - focus:将样式添加到被选中的元素;
-  - hover:当鼠标停留在上方时,向元素添加样式;
-  - link:给未被访问过的链接添加样式;
-  - visited:给已被访问过的链接添加样式;
-  - first-child:给元素的第一个子元素,添加样式;
+  - `:active`:将样式添加到被激活的元素;
+  - `:focus`:将样式添加到被选中的元素;
+  - `:hover`:当鼠标停留在上方时,向元素添加样式;
+  - `:link`:给未被访问过的链接添加样式;
+  - `:visited`:给已被访问过的链接添加样式;
+  - `:first-child`:给元素的第一个子元素,添加样式;
 
 
 - 伪元素:
-  - first-letter:给文本首字母添加样式;
-  - first-line:给文本首行添加样式;
-  - before:在元素之前插入样式;
-  - after:在元素之后插入样式;
+  - `::first-letter`:给文本首字母添加样式;
+  - `::first-line`:给文本首行添加样式;
+  - `::before`:在元素之前插入样式;
+  - `::after`:在元素之后插入样式;
 
 
 #### 36.简述css的盒模型
@@ -335,6 +340,7 @@
 - \0: ie8;
 - +: ie67;
 - _: ie6;
+
 #### 38.简述前端常用的布局方法.
 - 固定布局:主内容给死一个固定的宽度,在大屏中显示页面左右会有大量的空白部分;
 
