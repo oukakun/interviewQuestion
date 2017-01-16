@@ -369,6 +369,7 @@ background-clip: padding-box;
 ```css
 -webkit-appearance:none;
 ```
+
 #### 37.列举PC端开发浏览器常见的几种兼容性问题以及解决方案
 - 默认的内外边距不同(各个浏览器内外边距不同)    *{margin:0;padding:0}
 - 水平居中问题    
@@ -389,12 +390,14 @@ background-clip: padding-box;
     1.设置overflow:hidden;
     2.高度自增height:auto!important;height:100px;
 - 前端开发中常遇到的浏览器兼容问题小结               http://blog.csdn.net/anterwang/article/details/53338208
+
 #### 38.css盒模型介绍，涉及哪些属性
 - content (内容)、padding (间隙)、border(边框)、margin(间隔)
 - padding 盒子中的内容与盒子的距离
 - margin 盒子与盒子之间的距离
 - border 盒子的边框
 - content 盒子中的内容部分
+
 #### 39.css的引入方式
 - link方式引入
 - @import方式引入
